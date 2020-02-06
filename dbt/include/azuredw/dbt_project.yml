@@ -1,0 +1,5 @@
+
+name: dbt_azuredw
+version: 0.0.1
+
+macro-paths: ["macros"]

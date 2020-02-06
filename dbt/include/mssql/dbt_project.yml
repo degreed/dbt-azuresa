@@ -1,5 +1,0 @@
-
-name: dbt_mssql
-version: 1.0
-
-macro-paths: ["macros"]
