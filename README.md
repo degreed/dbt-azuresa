@@ -1,4 +1,4 @@
-# dbt-azuredw
+# dbt-azuresa
 
 dbt-azuredw is a custom adapter for [dbt](https://github.com/fishtown-analytics/dbt) that adds support for Azure SQL Data Warehouse.. pyodbc is used as the connection driver as that is what is [suggested by Microsoft](https://docs.microsoft.com/en-us/sql/connect/python/python-driver-for-sql-server). The adapter supports both windows auth, and specified user accounts.
 
