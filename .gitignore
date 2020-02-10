@@ -13,3 +13,4 @@ env/
 ## editor files
 *.swp
 .vscode/
+*.code-workspace
