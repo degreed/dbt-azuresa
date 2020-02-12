@@ -17,3 +17,6 @@ env/
 
 ## dbt files
 profiles.yml
+
+# env files
+env.list
