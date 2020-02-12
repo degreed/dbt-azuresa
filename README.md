@@ -4,6 +4,8 @@ dbt-azuresa is a custom adapter for [dbt](https://github.com/fishtown-analytics/
 
 dbt-azuresa is currently in a beta release.
 
+The official `dbt` adapter test suite is used here for testing. The GitHub repo for these integration tests can be found [here](https://github.com/fishtown-analytics/dbt-integration-tests).
+
 ## Connecting to Azure Synapse Analytics data warehouse
 
 ### Sample profiles.yml
