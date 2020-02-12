@@ -25,11 +25,12 @@ RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN mkdir ~/.dbt
 RUN mkdir /dbt_development
 RUN mkdir /dbt_development/plugins
-COPY . /dbt_development/plugins/dbt-azuredw
+COPY dbt /dbt_development/plugins/dbt-azuredw
 WORKDIR /dbt_development
-RUN cp ./plugins/dbt-azuredw/profiles.yml ~/.dbt/profiles.yml
+COPY profiles.yml ~/.dbt/profiles.yml
 
 # Install the adapter
+COPY setup.py ./plugins/dbt-azuredw/setup.py
 RUN python ./plugins/dbt-azuredw/setup.py install
 
 # Set up testing dependencies
