@@ -14,3 +14,6 @@ env/
 *.swp
 .vscode/
 *.code-workspace
+
+## dbt files
+profiles.yml
