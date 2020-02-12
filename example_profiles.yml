@@ -1,0 +1,13 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: azuredw
+      threads: 1
+      server: <your_server>.database.windows.net
+      schema: test
+      username: <your_username>
+      password: <your_password>
+      driver: 'ODBC Driver 17 for SQL Server'
+      authentication: ActiveDirectoryPassword
+      database: <your_database>
