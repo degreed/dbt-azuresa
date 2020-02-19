@@ -22,5 +22,5 @@ setup(
             "include/azuredw/macros/materializations/**/*.sql",
         ]
     },
-    install_requires=["dbt==0.14.0", "pyodbc==4.0.26"],
+    install_requires=["dbt-core==0.14.0", "pyodbc==4.0.26"],
 )

@@ -24,18 +24,17 @@ RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 
 # Set up the directories
 RUN mkdir ~/.dbt
-RUN mkdir /dbt_development
-RUN mkdir /dbt_development/plugins
-COPY dbt /dbt_development/plugins/dbt-azuredw
+COPY . /dbt_development
 WORKDIR /dbt_development
-
-# Install the adapter
-COPY setup.py ./plugins/dbt-azuredw/setup.py
-RUN python ./plugins/dbt-azuredw/setup.py install
 COPY profiles.yml /profiles.yml
 RUN cp /profiles.yml ~/.dbt/profiles.yml
+
+# Install Python Dependencies
+RUN pip install -r requirements.txt
+
+# Install the adapter
+RUN pip install -e .
 
 # Set up testing dependencies
 RUN git clone https://github.com/fishtown-analytics/dbt-integration-tests.git
 RUN pip install -r dbt-integration-tests/requirements.txt
-RUN cp /profiles.yml /dbt_development/dbt-integration-tests/profiles.yml
