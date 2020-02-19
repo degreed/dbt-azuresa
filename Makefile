@@ -8,4 +8,4 @@ dbt-shell: docker-build
 
 run-tests: docker-build
 	@echo "Running the suite of dbt adapter tests..."
-	@docker run --env-file ./env.list dbt-azuresa:testing /bin/bash -c "cd dbt-integration-tests/ && /bin/bash -eo pipefail bin/run-with-profile datawarehouse"
+	@docker run --env-file ./env.list dbt-azuresa:testing /bin/bash -c "cd dbt-integration-tests/ && /bin/bash -eo pipefail bin/run-with-profile default"

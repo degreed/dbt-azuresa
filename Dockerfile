@@ -22,15 +22,16 @@ RUN apt-get update && \
     ACCEPT_EULA=Y apt-get install msodbcsql17=17.3.1.1-1 -y 
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 
+# Install Python Dependencies
+COPY requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
+
 # Set up the directories
 RUN mkdir ~/.dbt
 COPY . /dbt_development
 WORKDIR /dbt_development
 COPY profiles.yml /profiles.yml
 RUN cp /profiles.yml ~/.dbt/profiles.yml
-
-# Install Python Dependencies
-RUN pip install -r requirements.txt
 
 # Install the adapter
 RUN pip install -e .
