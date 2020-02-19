@@ -20,13 +20,22 @@ default:
       driver: 'ODBC Driver 17 for SQL Server'
       host: account.database.windows.net
       database: dbt_test
-      schema: foo
-      username: dbt_user
-      password: super_secret_dbt_password
+      schema: "{{env_var('WAREHOUSE_SCHEMA')}}"
+      username: "{{env_var('WAREHOUSE_USERNAME')}}"
+      password: "{{env_var('WAREHOUSE_PASSWORD')}}"
       authentication: ActiveDirectoryPassword
 ```
 
+### Running via the Makefile
+
+This assumes that there are env vars that need to be injected into the containers. These commands expect an `env.list` file that will be used to populate env vars within the container. It also assumes that you have a `profiles.yml` file (not the example file).
+
+There are a few ways to interact with the dbt adapter, with commands in the Makefile to facilitate this.
+
+* `make dbt-shell`: This spins up a docker container with everything installed and opens an interactive bash shell within the container.
+* `make run-tests`: This spins up a docker container and runs the dbt integration tests.
+
 ## Known Issues
 
-- At this time dbt-azuresa supports only `table`, `view` and `incremental` materializations (no `ephemeral`)
-- Only top-level (model) CTEs are supported, ie CTEs in macros are not supported (this is a sqlserver thing)
+* At this time dbt-azuresa supports only `table`, `view` and `incremental` materializations (no `ephemeral`)
+* Only top-level (model) CTEs are supported, ie CTEs in macros are not supported (this is a sqlserver thing)
