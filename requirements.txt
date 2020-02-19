@@ -1,0 +1,3 @@
+pyodbc==4.0.26
+dbt==0.14.0
+sqlalchemy==1.3.12

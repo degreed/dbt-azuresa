@@ -13,3 +13,10 @@ env/
 ## editor files
 *.swp
 .vscode/
+*.code-workspace
+
+## dbt files
+profiles.yml
+
+# env files
+env.list
