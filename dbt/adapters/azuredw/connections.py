@@ -174,7 +174,7 @@ class AzureDWConnectionManager(SQLConnectionManager):
         return connection
 
     def cancel(self, connection):
-        ## TODO Implement This
+        connection.handle.close()
         pass
 
     @classmethod
